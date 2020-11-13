@@ -19,5 +19,5 @@
 [Choropleth](https://divixity.github.io/Python/HTML/ChoroplethAdvanced.html)
 
 Inline image: 
-![alt text](https://divixity.github.io/Divixity.jpg "My logo")
+<!-- ![alt text](https://divixity.github.io/Divixity.jpg "My logo") -->
 
