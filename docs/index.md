@@ -1,12 +1,11 @@
 # Visualisation of Pokémon!
-## Data Visualisation Exam Paper
-
 Mads Corfixen, 2016 4715\
 mcorfi16@studen.aau.dk\
 Aalborg University\
 Data Science, 3rd Semester
 
-Welcome to this GitHub Pages site, on which the interactive visualizations for my exam in Data Visualization are located.
+## Data Visualisation Exam Paper
+Welcome to this GitHub Pages site, on which the interactive visualisations for my exam in Data Visualisation are located.
 Each question described in the Problem Statement of the report pertains to several graphs, sorted as seen below. Simply
 click a link, and the associated visualisation will open in your browser.
 
