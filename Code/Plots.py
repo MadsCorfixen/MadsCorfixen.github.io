@@ -7,10 +7,11 @@ def save_plot(fig, plot_name):
 
 
 def create_type_histogram(data):
-    fig = go.Figure(data=[go.Histogram(x=data.type, histnorm='probability')])
+    fig = go.Figure(data=[go.Histogram(x=data.type)])
 
     fig.update_xaxes(categoryorder="total descending")
-    fig.update_layout(title="Distribution of Pokémon Types", xaxis_title="Typing", yaxis_title="Proportion")
+    fig.update_layout(title="Distribution of Pokémon Types", xaxis_title="Typing", yaxis_title="Amount of Type",
+                      xaxis=dict(range=[-0.5, 20.5]))
 
     save_plot(fig, "TypeHistogram")
 
