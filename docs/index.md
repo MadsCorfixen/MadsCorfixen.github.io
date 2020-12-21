@@ -1,23 +1,10 @@
-# Visualizing Crime in San Francisco
+Hello!
 
-## Abstract (Optional)
+Welcome to this GitHub Pages site, on which the interactive visualization for my exam in Data Visualization are located.
 
-## Introduction (Why is this important)
+[Something linky](https://madscorfixen.github.io/)
 
-## Description of desired outcome
+[comment]: <> ([Heatmap]&#40;https://divixity.github.io/Python/HTML/Heatmap.html&#41;)
 
-## Explanation of design
-
-## Report on evaluation
-
-## Discussion og ethical conserns
-
-## References
-
-[Heatmap](https://divixity.github.io/Python/HTML/Heatmap.html)
-
-[Choropleth](https://divixity.github.io/Python/HTML/ChoroplethAdvanced.html)
-
-Inline image: 
-<!-- ![alt text](https://divixity.github.io/Divixity.jpg "My logo") -->
+[comment]: <> ([Choropleth]&#40;https://divixity.github.io/Python/HTML/ChoroplethAdvanced.html&#41;)
 
