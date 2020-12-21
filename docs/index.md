@@ -4,4 +4,4 @@ Welcome to this GitHub Pages site, on which the interactive visualization for my
 
 [Something linky](https://madscorfixen.github.io/)
 
-[Something linky](https://madscorfixen.github.io/UsedPlots/TypeHistogram.html)
+[Type Histogram](https://madscorfixen.github.io/UsedPlots/TypeHistogram.html)
