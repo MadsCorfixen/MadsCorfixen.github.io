@@ -2,6 +2,11 @@ Hello!
 
 Welcome to this GitHub Pages site, on which the interactive visualization for my exam in Data Visualization are located.
 
-[Type Histogram](https://madscorfixen.github.io/UsedPlots/TypeHistogram.html)
+### Test123
 
-[Correlation between <i>Base Egg Steps</i>, <i>Capture Rate</i>, and <i>Base Total</i>](https://madscorfixen.github.io/UsedPlots/CorrelationPlot1.html)
+#### How many of each type of Pokémon exists?
+[Histogram](https://madscorfixen.github.io/UsedPlots/TypeHistogram.html)
+
+#### Is there a correlation between the overall strength of a Pokémon and its other statistics?
+[Scatterplot](https://madscorfixen.github.io/UsedPlots/CorrelationPlot1.html)
+

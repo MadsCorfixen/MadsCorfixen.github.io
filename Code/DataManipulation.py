@@ -4,7 +4,7 @@ import pandas as pd
 def load_data():
     data = pd.read_csv("..\docs\pokemon.csv")
 
-    # Changes the two columsn type1 and type2 into a single column containing both info
+    # Changes the two columns type1 and type2 into a single column containing both info
     data["type2"] = data["type2"].fillna("None")
     data["type"] = data["type1"] + "/" + data["type2"]
 
