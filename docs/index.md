@@ -4,7 +4,4 @@ Welcome to this GitHub Pages site, on which the interactive visualization for my
 
 [Something linky](https://madscorfixen.github.io/)
 
-[comment]: <> ([Heatmap]&#40;https://divixity.github.io/Python/HTML/Heatmap.html&#41;)
-
-[comment]: <> ([Choropleth]&#40;https://divixity.github.io/Python/HTML/ChoroplethAdvanced.html&#41;)
-
+[Something linky](https://madscorfixen.github.io/UsedPlots/TypeHistogram)
