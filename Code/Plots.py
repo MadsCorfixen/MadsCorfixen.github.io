@@ -71,15 +71,15 @@ def create_scatter_with_stats():
                                 color=data[colour_by],
                                 colorscale="Viridis",
                                 colorbar=dict(
-                                title="{}".format(colour_by)
-                                ),
-                                showscale=True)
-                                    )
+                                title="{}".format(colour_by)),
+                                showscale=True))
                     )
 
     fig.update_layout(title="Correlation between {}, {}, and {}".format(x_var, y_var, colour_by),
                       xaxis_title="{}".format(x_var),
                       yaxis_title="{}".format(y_var))
+
+    fig.update_xaxes(range=(-5, 260))
 
     save_plot(fig, "CorrelationPlot")
 
