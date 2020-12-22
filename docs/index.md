@@ -1,31 +1,32 @@
 # Visualisation of Pokémon!
-Mads Corfixen, 2016 4715\
+Mads Corfixen\
 mcorfi16@studen.aau.dk\
+Data Science, 3rd Semester\
 Aalborg University\
-Data Science, 3rd Semester
+January 28, 2021
 
 ## Data Visualisation Exam Paper
 Welcome to this GitHub Pages site, on which the interactive visualisations for my exam in Data Visualisation are located.
 Each question described in the Problem Statement of the report pertains to several graphs, sorted as seen below. Simply
 click a link, and the associated visualisation will open in your browser.
 
-#### Which Pokémon typing is the most common?
-[Histogram](https://madscorfixen.github.io/UsedPlots/TypeHistogram.html)
+### Which Pokémon typing is the most common?
+Most important Data Vis considerations about the below viusalisation.
 
-[Placeholder (Fig. XY)](https://madscorfixen.github.io)
+[Histogram (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/TypeHistogram.html)
 
-[Placeholder (Fig. XY)](https://madscorfixen.github.io)
+### Is there a correlation between the overall strength of a Pokémon and its other statistics?
+Most important Data Vis considerations about the below viusalisations
 
-#### Is there a correlation between the overall strength of a Pokémon and its other statistics?
-[Scatter Plot](https://madscorfixen.github.io/UsedPlots/CorrelationPlot.html)
+[Scatter Plot (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/CorrelationPlot.html)
 
-[Placeholder (Fig. XY)](https://madscorfixen.github.io)
+[Linked Plot (Figure X.Y)](https://madscorfixen.github.io)
 
-[Placeholder (Fig. XY)](https://madscorfixen.github.io)
+### What makes a Pokémon legendary?
+Most important Data Vis considerations about the below viusalisations
 
-#### What makes a Pokémon legendary?
-[Violin Plot](https://madscorfixen.github.io/UsedPlots/ViolinPlot.html)
+[Violin Plot (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/ViolinPlot.html)
 
-[Placeholder (Fig. XY)](https://madscorfixen.github.io)
+[Boxplot w/ Whiskers (Figure X.Y)](https://madscorfixen.github.io)
 
-[Placeholder (Fig. XY)](https://madscorfixen.github.io)
+[Violin Plot w/ Points (Figure X.Y)](https://madscorfixen.github.io)
