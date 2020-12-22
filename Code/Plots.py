@@ -53,7 +53,7 @@ def create_type_histogram():
     )
 
     fig.update_xaxes(categoryorder="total descending", title="Typing", range=(-0.5, 17.5))
-    fig.update_yaxes(title="Count")
+    fig.update_yaxes(title="Count", range=(-0.5, 62.5))
 
     save_plot(fig, "TypeHistogram")
 
