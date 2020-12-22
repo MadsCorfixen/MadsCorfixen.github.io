@@ -65,17 +65,17 @@ def create_scatter_with_stats():
     colour_by = "base_total"
 
     fig = go.Figure(data=go.Scatter(x=data[x_var].astype(int),
-                                y=data[y_var].astype(int),
-                                mode='markers',
-                                marker=dict(size=16,
-                                            color=data[colour_by],
-                                            colorscale="Viridis",
-                                            colorbar=dict(
-                                                title="{}".format(colour_by)
-                                            ),
-                                            showscale=True)
-                                )
-                )
+                    y=data[y_var].astype(int),
+                    mode='markers',
+                    marker=dict(size=16,
+                                color=data[colour_by],
+                                colorscale="Viridis",
+                                colorbar=dict(
+                                title="{}".format(colour_by)
+                                ),
+                                showscale=True)
+                                    )
+                    )
 
     fig.update_layout(title="Correlation between {}, {}, and {}".format(x_var, y_var, colour_by),
                       xaxis_title="{}".format(x_var),
@@ -84,18 +84,55 @@ def create_scatter_with_stats():
     save_plot(fig, "CorrelationPlot")
 
 
-def violin_plot_type(normal_data, legendary_data):
+def create_legend_violin_plot():
+    normal_data = dm.load_data()
+    legendary_data = dm.only_legendary()
+
     fig = go.Figure()
 
     fig.add_trace(go.Violin(
         x=normal_data["is_legendary"],
-        y=normal_data["base_total"])
+        y=normal_data["base_total"],
+        name="Non-Legendary",
+        line_color="black",
+        fillcolor="green")
     )
 
     fig.add_trace(go.Violin(
         x=legendary_data["is_legendary"],
-        y=legendary_data["base_total"])
+        y=legendary_data["base_total"],
+        name="Legendary",
+        line_color="black",
+        fillcolor="blue")
     )
 
-    fig.show()
+    fig.update_layout(
+        updatemenus=[dict(
+            direction="down", x=1.01, y=0.966, xanchor="left", type="buttons",
+            buttons=[
+                dict(
+                    label="Base Total",
+                    method="update",
+                    args=[
+                        {"y": [normal_data["base_total"], legendary_data["base_total"]]}
+                    ]
+                ),
+                dict(
+                    label="Base Egg Steps",
+                    method="update",
+                    args=[
+                        {"y": [normal_data["base_egg_steps"], legendary_data["base_egg_steps"]]}
+                    ]
+                ),
+                dict(
+                    label="Capture Rate",
+                    method="update",
+                    args=[
+                        {"y": [normal_data["capture_rate"], legendary_data["capture_rate"]]}
+                    ]
+                )
+            ]
+        )]
+    )
 
+    save_plot(fig, "ViolinPlot")

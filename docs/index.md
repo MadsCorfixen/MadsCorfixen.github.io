@@ -10,21 +10,21 @@ Each question described in the Problem Statement of the report pertains to sever
 click a link, and the associated visualisation will open in your browser.
 
 #### Which Pokémon typing is the most common?
-[Histogram (Fig. XY)](https://madscorfixen.github.io/UsedPlots/TypeHistogram.html)
+[Histogram](https://madscorfixen.github.io/UsedPlots/TypeHistogram.html)
 
 [Placeholder (Fig. XY)](https://madscorfixen.github.io)
 
 [Placeholder (Fig. XY)](https://madscorfixen.github.io)
 
 #### Is there a correlation between the overall strength of a Pokémon and its other statistics?
-[Scatterplot (Fig. XY)](https://madscorfixen.github.io/UsedPlots/CorrelationPlot.html)
+[Scatter Plot](https://madscorfixen.github.io/UsedPlots/CorrelationPlot.html)
 
 [Placeholder (Fig. XY)](https://madscorfixen.github.io)
 
 [Placeholder (Fig. XY)](https://madscorfixen.github.io)
 
 #### What makes a Pokémon legendary?
-[Placeholder (Fig. XY)](https://madscorfixen.github.io)
+[Violin Plot](https://madscorfixen.github.io/UsedPlots/ViolinPlot.html)
 
 [Placeholder (Fig. XY)](https://madscorfixen.github.io)
 
