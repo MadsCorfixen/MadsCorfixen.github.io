@@ -107,32 +107,44 @@ def create_legend_violin_plot():
     )
 
     fig.update_layout(
+        annotations=[dict(text="<b>Choose Comparison", x=1.01, xref="paper", xanchor="left",
+                          y=0.92, yref="paper", showarrow=False)],
+        legend=dict(x=1.005, xanchor="left", y=1),
         updatemenus=[dict(
-            direction="down", x=1.01, y=0.966, xanchor="left", type="buttons",
+            direction="down", x=1.01, y=0.9, xanchor="left", type="buttons",
             buttons=[
                 dict(
                     label="Base Total",
                     method="update",
                     args=[
-                        {"y": [normal_data["base_total"], legendary_data["base_total"]]}
+                        {"y": [normal_data["base_total"], legendary_data["base_total"]]},
+                        {"title.text": "Comparison of Base Total"}
                     ]
                 ),
                 dict(
                     label="Base Egg Steps",
                     method="update",
                     args=[
-                        {"y": [normal_data["base_egg_steps"], legendary_data["base_egg_steps"]]}
+                        {"y": [normal_data["base_egg_steps"], legendary_data["base_egg_steps"]]},
+                        {"title.text": "Comparison of Base Egg Steps"}
                     ]
                 ),
                 dict(
                     label="Capture Rate",
                     method="update",
                     args=[
-                        {"y": [normal_data["capture_rate"], legendary_data["capture_rate"]]}
+                        {"y": [normal_data["capture_rate"], legendary_data["capture_rate"]]},
+                        {"title.text": "Comparison of Capture Rate"}
                     ]
                 )
             ]
-        )]
+        )],
+        title="Comparison of Base Total",
+        xaxis=dict(
+            tickmode='array',
+            tickvals=[0, 1],
+            ticktext=["Non-Legendary", "Legendary"]
+        )
     )
 
     save_plot(fig, "ViolinPlot")
