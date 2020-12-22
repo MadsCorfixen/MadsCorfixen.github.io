@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 
 def load_data():
@@ -10,7 +9,7 @@ def load_data():
     data = pd.read_csv("..\docs\pokemon.csv")
 
     # Changes the two columns type1 and type2 into a single column containing both info
-    data["type2"] = data["type2"].fillna("None")
+    data["type2"] = data["type2"].fillna("none")
     data["type"] = data["type1"] + "/" + data["type2"]
 
     # Removes weird string value from base_egg_steps column
@@ -20,6 +19,20 @@ def load_data():
     # Removes values from base_egg_steps rows if Pokémon is legendary
     # data.loc[data["is_legendary"] == 1, "base_egg_steps"] = np.nan
 
+    return data
+
+
+def mono_type():
+    data = load_data()
+    data = data[data["type2"] == "none"]
+    data = data.reset_index()
+    return data
+
+
+def dual_type():
+    data = load_data()
+    data = data[data["type2"] != "none"]
+    data = data.reset_index()
     return data
 
 
@@ -44,11 +57,12 @@ def no_legendary():
     return data_no_legendary
 
 
-def group_data_mean(data, group_by_var):
+def group_data_mean(group_by_var):
     """
     Groups the data by mean using the parameter group_by_var
     :param group_by_var: The variable which the data is grouped on
     :return: A pandas DataFrame of the original data, grouped on group_by_var
     """
+    data = load_data()
     data_grouped = data.groupby(group_by_var, as_index=False).mean()
     return data_grouped
