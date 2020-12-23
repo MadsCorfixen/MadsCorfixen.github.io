@@ -11,22 +11,22 @@ Each question described in the Problem Statement of the report pertains to sever
 click a link, and the associated visualisation will open in your browser.
 
 ### Which Pokémon typing is the most common?
-Most important Data Vis considerations about the below viusalisation.
+Most important Data Vis considerations about the below visualisation.
 
 [Histogram (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/TypeHistogram.html)
 
 ### Is there a correlation between the overall strength of a Pokémon and its other statistics?
-Most important Data Vis considerations about the below viusalisations
+Most important Data Vis considerations about the below visualisations
 
 [Scatter Plot (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/CorrelationPlot.html)
 
-[Linked Plot (Figure X.Y)](https://madscorfixen.github.io)
+[Linked Plot (Not Implemented)](https://madscorfixen.github.io)
 
 ### What makes a Pokémon legendary?
-Most important Data Vis considerations about the below viusalisations
+Most important Data Vis considerations about the below visualisations
+
+[Boxplot w/ Whiskers (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/BoxPlot.html)
 
 [Violin Plot (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/ViolinPlot.html)
 
-[Boxplot w/ Whiskers (Figure X.Y)](https://madscorfixen.github.io)
-
-[Violin Plot w/ Points (Figure X.Y)](https://madscorfixen.github.io)
+[Violin Plot w/ Points (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/ViolinPlotWithPoints.html)
