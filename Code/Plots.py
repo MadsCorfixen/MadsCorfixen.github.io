@@ -153,3 +153,24 @@ def create_legend_violin_plot(show_points=True, file_name="ViolinPlot"):
     )
 
     save_plot(fig, file_name)
+
+
+def create_legend_boxplot():
+    normal_data = dm.load_data()
+    legendary_data = dm.only_legendary()
+
+    fig = go.Figure()
+
+    fig.add_trace(go.Box(x=normal_data["is_legendary"],
+                         y=normal_data["base_total"],
+                         name="Non-Legendary",
+                         line_color="black",
+                         fillcolor="green"))
+
+    fig.add_trace(go.Box(x=legendary_data["is_legendary"],
+                         y=legendary_data["base_total"],
+                         name="Legendary",
+                         line_color="black",
+                         fillcolor="blue"))
+
+    save_plot(fig, "BoxPlot")
