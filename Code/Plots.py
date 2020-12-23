@@ -84,7 +84,7 @@ def create_scatter_with_stats():
     save_plot(fig, "CorrelationPlot")
 
 
-def create_legend_violin_plot():
+def create_legend_violin_plot(show_points=True, file_name="ViolinPlot"):
     normal_data = dm.load_data()
     legendary_data = dm.only_legendary()
 
@@ -105,6 +105,11 @@ def create_legend_violin_plot():
         line_color="black",
         fillcolor="blue")
     )
+
+    if show_points:
+        fig.update_traces(meanline_visible=False,
+                          points='all',  # show all points
+                          jitter=0.25) # add some jitter on points for better visibility
 
     fig.update_layout(
         annotations=[dict(text="<b>Choose Comparison", x=1.01, xref="paper", xanchor="left",
@@ -147,4 +152,4 @@ def create_legend_violin_plot():
         )
     )
 
-    save_plot(fig, "ViolinPlot")
+    save_plot(fig, file_name)
