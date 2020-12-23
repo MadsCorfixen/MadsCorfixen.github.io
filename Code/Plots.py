@@ -155,7 +155,6 @@ def create_legend_violin_plot(show_points=True, file_name="ViolinPlot"):
                 )
             ]
         )],
-        title="Comparison of Base Total",
         xaxis=dict(
             tickmode='array',
             tickvals=[0, 1],
@@ -187,5 +186,48 @@ def create_legend_boxplot():
                          name="Legendary",
                          line_color="black",
                          fillcolor="blue"))
+
+    fig.update_layout(
+        annotations=[dict(text="<b>Choose Comparison", x=1.01, xref="paper", xanchor="left",
+                          y=0.92, yref="paper", showarrow=False)],
+        legend=dict(x=1.005, xanchor="left", y=1),
+        updatemenus=[dict(
+            direction="down", x=1.01, y=0.9, xanchor="left", type="buttons",
+            buttons=[
+                dict(
+                    label="Base Total",
+                    method="update",
+                    args=[
+                        {"y": [normal_data["base_total"], legendary_data["base_total"]]},
+                        {"yaxis.title.text": "Base Total"}
+                    ]
+                ),
+                dict(
+                    label="Base Egg Steps",
+                    method="update",
+                    args=[
+                        {"y": [normal_data["base_egg_steps"], legendary_data["base_egg_steps"]]},
+                        {"yaxis.title.text": "Base Egg Steps"}
+                    ]
+                ),
+                dict(
+                    label="Capture Rate",
+                    method="update",
+                    args=[
+                        {"y": [normal_data["capture_rate"], legendary_data["capture_rate"]]},
+                        {"yaxis.title.text": "Capture Rate"}
+                    ]
+                )
+            ]
+        )],
+        xaxis=dict(
+            tickmode='array',
+            tickvals=[0, 1],
+            ticktext=["Non-Legendary", "Legendary"]
+        )
+    )
+
+    fig.update_yaxes(rangemode="nonnegative", title="Base Total")
+    fig.update_layout(title="Comparison of Attributes between Legendary and non-Legendary Pokémon")
 
     save_plot(fig, "BoxPlot")
