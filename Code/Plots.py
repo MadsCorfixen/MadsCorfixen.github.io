@@ -85,8 +85,11 @@ def create_scatter_with_stats():
 
 
 def create_legend_violin_plot(show_points=True, file_name="ViolinPlot"):
-    normal_data = dm.load_data()
+    normal_data = dm.no_legendary()
     legendary_data = dm.only_legendary()
+
+    if show_points:
+        show_points = "all"
 
     fig = go.Figure()
 
@@ -95,7 +98,13 @@ def create_legend_violin_plot(show_points=True, file_name="ViolinPlot"):
         y=normal_data["base_total"],
         name="Non-Legendary",
         line_color="black",
-        fillcolor="green")
+        fillcolor="green",
+        points=show_points,
+        jitter=0.25,
+        marker=dict(
+            color="green",
+            opacity=0.25
+        ))
     )
 
     fig.add_trace(go.Violin(
@@ -103,13 +112,15 @@ def create_legend_violin_plot(show_points=True, file_name="ViolinPlot"):
         y=legendary_data["base_total"],
         name="Legendary",
         line_color="black",
-        fillcolor="blue")
+        fillcolor="blue",
+        points=show_points,
+        jitter=0.25,
+        marker=dict(
+            color="blue",
+            opacity=0.25
+        ),
+        scalemode="count")
     )
-
-    if show_points:
-        fig.update_traces(meanline_visible=False,
-                          points='all',  # show all points
-                          jitter=0.25) # add some jitter on points for better visibility
 
     fig.update_layout(
         annotations=[dict(text="<b>Choose Comparison", x=1.01, xref="paper", xanchor="left",
@@ -123,7 +134,7 @@ def create_legend_violin_plot(show_points=True, file_name="ViolinPlot"):
                     method="update",
                     args=[
                         {"y": [normal_data["base_total"], legendary_data["base_total"]]},
-                        {"title.text": "Comparison of Base Total"}
+                        {"yaxis.title.text": "Base Total"}
                     ]
                 ),
                 dict(
@@ -131,7 +142,7 @@ def create_legend_violin_plot(show_points=True, file_name="ViolinPlot"):
                     method="update",
                     args=[
                         {"y": [normal_data["base_egg_steps"], legendary_data["base_egg_steps"]]},
-                        {"title.text": "Comparison of Base Egg Steps"}
+                        {"yaxis.title.text": "Base Egg Steps"}
                     ]
                 ),
                 dict(
@@ -139,7 +150,7 @@ def create_legend_violin_plot(show_points=True, file_name="ViolinPlot"):
                     method="update",
                     args=[
                         {"y": [normal_data["capture_rate"], legendary_data["capture_rate"]]},
-                        {"title.text": "Comparison of Capture Rate"}
+                        {"yaxis.title.text": "Capture Rate"}
                     ]
                 )
             ]
@@ -152,6 +163,10 @@ def create_legend_violin_plot(show_points=True, file_name="ViolinPlot"):
         )
     )
 
+    fig.update_yaxes(rangemode="nonnegative", title="Base Total")
+    fig.update_layout(title="Comparison of Attributes between Legendary and non-Legendary Pokémon")
+
+    fig.show()
     save_plot(fig, file_name)
 
 

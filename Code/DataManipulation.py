@@ -29,14 +29,13 @@ def dual_type():
 
 def only_legendary():
     data = load_data()
-    data_legendary = data[data["is_legendary"] == 1]
+    data_legendary = data[data["is_legendary"] != 0]
     return data_legendary
 
 
 def no_legendary():
     data = load_data()
-    data = data[data["is_legendary"] == 0]
-    data_no_legendary = data[data["base_egg_steps"] < 15000]
+    data_no_legendary = data[data["is_legendary"] != 1]
     return data_no_legendary
 
 
