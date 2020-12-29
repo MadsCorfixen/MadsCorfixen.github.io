@@ -1,3 +1,4 @@
+from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import DataManipulation as dm
 
@@ -14,7 +15,17 @@ def create_type_histogram():
 
     fig = go.Figure()
 
-    fig.add_trace(go.Histogram(x=all_data["type"], name="All Pokémon"))
+    fig.add_trace(go.Histogram(x=all_data["type"],
+                               name="All Pokémon",
+                               marker=dict(
+                                   line=dict(
+                                       width=1.5,
+                                       color="black"
+                                   ),
+                                   color="green"
+                               )
+                               )
+                  )
 
     fig.update_layout(
         annotations=[dict(text="<b>Choose Mono- or<br />Dual Typing</b>", x=1.01, xref="paper", xanchor="left",
@@ -59,20 +70,20 @@ def create_type_histogram():
 
 
 def create_scatter_with_stats():
-    data = dm.group_data_mean("type")
+    all_data = dm.load_data()
+    data = dm.group_data_mean(all_data, "type")
     x_var = "capture_rate"
     y_var = "base_egg_steps"
     colour_by = "base_total"
 
     fig = go.Figure(data=go.Scatter(x=data[x_var].astype(int),
-                    y=data[y_var].astype(int),
-                    mode='markers',
-                    marker=dict(size=16,
-                                color=data[colour_by],
-                                colorscale="Viridis",
-                                colorbar=dict(
-                                title="{}".format(colour_by)),
-                                showscale=True))
+                                    y=data[y_var].astype(int),
+                                    mode='markers',
+                                    marker=dict(size=16,
+                                                color=data[colour_by],
+                                                colorscale="Viridis",
+                                                colorbar=dict(title="{}".format(colour_by)),
+                                                showscale=True))
                     )
 
     fig.update_layout(title="Correlation between {}, {}, and {}".format(x_var, y_var, colour_by),
@@ -84,7 +95,7 @@ def create_scatter_with_stats():
     save_plot(fig, "CorrelationPlot")
 
 
-def create_legend_violin_plot(show_points=True, file_name="ViolinPlot"):
+def create_legend_violin_plot(show_points=True, add_sample_size=False, file_name="ViolinPlot"):
     normal_data = dm.no_legendary()
     legendary_data = dm.only_legendary()
 
@@ -93,6 +104,10 @@ def create_legend_violin_plot(show_points=True, file_name="ViolinPlot"):
 
     if show_points:
         show_points = "all"
+
+    if not add_sample_size:
+        size_normal = None
+        size_legend = None
 
     fig = go.Figure()
 
@@ -161,14 +176,14 @@ def create_legend_violin_plot(show_points=True, file_name="ViolinPlot"):
         xaxis=dict(
             tickmode='array',
             tickvals=[0, 1],
-            ticktext=["Non-Legendary<br />Sample Size: {}".format(size_normal), "Legendary<br />Sample Size: {}".format(size_legend)]
+            ticktext=["Non-Legendary<br />Sample Size: {}".format(size_normal),
+                      "Legendary<br />Sample Size: {}".format(size_legend)]
         )
     )
 
     fig.update_yaxes(rangemode="nonnegative", title="Base Total")
     fig.update_layout(title="Comparison of Attributes between Legendary and non-Legendary Pokémon")
 
-    fig.show()
     save_plot(fig, file_name)
 
 
@@ -234,3 +249,103 @@ def create_legend_boxplot():
     fig.update_layout(title="Comparison of Attributes between Legendary and non-Legendary Pokémon")
 
     save_plot(fig, "BoxPlot")
+
+
+def linked_plot():
+    all_data = dm.load_data()
+    data = dm.group_data_mean(all_data, "type")
+
+    legend_data = dm.only_legendary()
+    legend_data = dm.group_data_mean(legend_data, "type")
+
+    normal_data = dm.no_legendary()
+    normal_data = dm.group_data_mean(normal_data, "type")
+
+    mono_data = dm.mono_type()
+    mono_data = dm.group_data_mean(mono_data, "type")
+
+    dual_data = dm.dual_type()
+    dual_data = dm.group_data_mean(dual_data, "type")
+
+    fig = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.02)
+
+    fig.add_trace(
+        go.Scatter(
+            x=data["base_total"],
+            y=data["base_egg_steps"],
+            mode="markers",
+            name="Base Egg Steps",
+            marker=dict(
+                size=12,
+                color="green",
+                line=dict(
+                    color="black",
+                    width=1.5
+                )
+            )
+        ),
+        row=1,
+        col=1
+    )
+
+    fig.add_trace(
+        go.Scatter(
+            x=data["base_total"],
+            y=data["capture_rate"],
+            mode="markers",
+            name="Capture Rate",
+            marker=dict(
+                size=12,
+                color="blue",
+                line=dict(
+                    color="black",
+                    width=1.5
+                )
+            )
+        ),
+        row=2,
+        col=1
+    )
+
+    fig.update_layout(
+        annotations=[dict(text="<b>Choose Pokémon Category", x=1.01, xref="paper", xanchor="left",
+                          y=0.94, yref="paper", showarrow=False)],
+        legend=dict(x=1.005, xanchor="left", y=1),
+        updatemenus=[
+            dict(direction="down",
+                 x=1.01,
+                 y=0.92,
+                 xanchor="left",
+                 buttons=list([
+                     dict(label="All Pokémon",
+                          method="update",
+                          args=[
+                              {"y": [data["base_egg_steps"], data["capture_rate"]]}
+                          ]),
+                     dict(label="Legendary Pokémon",
+                          method="update",
+                          args=[
+                              {"y": [legend_data["base_egg_steps"], legend_data["capture_rate"]]}
+                          ]),
+                     dict(label="Non-Legendary Pokémon",
+                          method="update",
+                          args=[
+                              {"y": [normal_data["base_egg_steps"], normal_data["capture_rate"]]}
+                          ]),
+                     dict(label="Mono-Typed Pokémon",
+                          method="update",
+                          args=[
+                              {"y": [mono_data["base_egg_steps"], mono_data["capture_rate"]]}
+                          ]),
+                     dict(label="Dual-Typed Pokémon",
+                          method="update",
+                          args=[
+                              {"y": [dual_data["base_egg_steps"], dual_data["capture_rate"]]}
+                          ])
+                     ]))])
+
+    fig.update_xaxes(title_text="Base Total", row=2, col=1)
+    fig.update_yaxes(title_text="Base Egg Steps", row=1, col=1)
+    fig.update_yaxes(title_text="Capture Rate", row=2, col=1)
+
+    save_plot(fig, "LinkedPlot")

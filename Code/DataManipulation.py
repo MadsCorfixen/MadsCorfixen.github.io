@@ -39,7 +39,6 @@ def no_legendary():
     return data_no_legendary
 
 
-def group_data_mean(group_by_var):
-    data = load_data()
+def group_data_mean(data, group_by_var):
     data_grouped = data.groupby(group_by_var, as_index=False).mean()
     return data_grouped
