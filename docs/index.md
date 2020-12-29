@@ -18,15 +18,15 @@ Most important Data Vis considerations about the below visualisation.
 ### Is there a correlation between the overall strength of a Pokémon and its other statistics?
 Most important Data Vis considerations about the below visualisations
 
-[Scatter Plot (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/CorrelationPlot.html)
+[Linked Plot (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/LinkedPlot.html)
 
-[Linked Plot (Not Implemented)](https://madscorfixen.github.io)
+[Scatter Plot (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/CorrelationPlot.html)
 
 ### What makes a Pokémon legendary?
 Most important Data Vis considerations about the below visualisations
 
+[Violin Plot 1 (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/ViolinPlotWithPoints.html)
+
+[Violin Plot 2 (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/ViolinPlot.html)
+
 [Boxplot w/ Whiskers (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/BoxPlot.html)
-
-[Violin Plot (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/ViolinPlot.html)
-
-[Violin Plot w/ Points (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/ViolinPlotWithPoints.html)
