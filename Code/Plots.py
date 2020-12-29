@@ -88,6 +88,9 @@ def create_legend_violin_plot(show_points=True, file_name="ViolinPlot"):
     normal_data = dm.no_legendary()
     legendary_data = dm.only_legendary()
 
+    size_normal = len(normal_data)
+    size_legend = len(legendary_data)
+
     if show_points:
         show_points = "all"
 
@@ -158,7 +161,7 @@ def create_legend_violin_plot(show_points=True, file_name="ViolinPlot"):
         xaxis=dict(
             tickmode='array',
             tickvals=[0, 1],
-            ticktext=["Non-Legendary", "Legendary"]
+            ticktext=["Non-Legendary<br />Sample Size: {}".format(size_normal), "Legendary<br />Sample Size: {}".format(size_legend)]
         )
     )
 
