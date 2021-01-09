@@ -2,6 +2,7 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import DataManipulation as dm
+import Regression as rgr
 
 
 def save_plot(fig, plot_name):
@@ -256,18 +257,6 @@ def linked_plot():
     all_data = dm.load_data()
     data = dm.group_data_mean(all_data, "base_total")
 
-    legend_data = dm.only_legendary()
-    legend_data = dm.group_data_mean(legend_data, "base_total")
-
-    normal_data = dm.no_legendary()
-    normal_data = dm.group_data_mean(normal_data, "base_total")
-
-    mono_data = dm.mono_type()
-    mono_data = dm.group_data_mean(mono_data, "base_total")
-
-    dual_data = dm.dual_type()
-    dual_data = dm.group_data_mean(dual_data, "base_total")
-
     fig = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.02)
 
     fig.add_trace(
@@ -308,42 +297,70 @@ def linked_plot():
         col=1
     )
 
-    fig.update_layout(
-        annotations=[dict(text="<b>Choose Pokémon Category", x=1.01, xref="paper", xanchor="left",
-                          y=0.94, yref="paper", showarrow=False)],
-        legend=dict(x=1.005, xanchor="left", y=1),
-        updatemenus=[
-            dict(direction="down",
-                 x=1.01,
-                 y=0.92,
-                 xanchor="left",
-                 buttons=list([
-                     dict(label="All Pokémon",
-                          method="update",
-                          args=[
-                              {"y": [data["base_egg_steps"], data["capture_rate"]]}
-                          ]),
-                     dict(label="Legendary Pokémon",
-                          method="update",
-                          args=[
-                              {"y": [legend_data["base_egg_steps"], legend_data["capture_rate"]]}
-                          ]),
-                     dict(label="Non-Legendary Pokémon",
-                          method="update",
-                          args=[
-                              {"y": [normal_data["base_egg_steps"], normal_data["capture_rate"]]}
-                          ]),
-                     dict(label="Mono-Typed Pokémon",
-                          method="update",
-                          args=[
-                              {"y": [mono_data["base_egg_steps"], mono_data["capture_rate"]]}
-                          ]),
-                     dict(label="Dual-Typed Pokémon",
-                          method="update",
-                          args=[
-                              {"y": [dual_data["base_egg_steps"], dual_data["capture_rate"]]}
-                          ])
-                     ]))])
+    linear_line_egg = rgr.best_fit_linear(data=data, x_var="base_total", y_var="base_egg_steps", color="green")
+    exponential_line_egg = rgr.best_fit_exp(data=data, x_var="base_total", y_var="base_egg_steps", color="green")
+    logarithmic_line_egg = rgr.best_fit_log(data=data, x_var="base_total", y_var="base_egg_steps", color="green")
+
+    linear_line_capture = rgr.best_fit_linear(data=data, x_var="base_total", y_var="capture_rate", color="blue")
+    exponential_line_capture = rgr.best_fit_exp(data=data, x_var="base_total", y_var="capture_rate", color="blue")
+    logarithmic_line_capture = rgr.best_fit_log(data=data, x_var="base_total", y_var="capture_rate", color="blue")
+
+    fig.add_trace(linear_line_egg[0], row=1, col=1)
+    fig.add_trace(exponential_line_egg[0], row=1, col=1)
+    fig.add_trace(logarithmic_line_egg[0], row=1, col=1)
+
+    fig.add_trace(linear_line_capture[0], row=2, col=1)
+    fig.add_trace(exponential_line_capture[0], row=2, col=1)
+    fig.add_trace(logarithmic_line_capture[0], row=2, col=1)
+
+    linear_annotation = [dict(
+        showarrow=True,
+        x=200,
+        y=5000,
+        text="Point 1",
+        xanchor="left",
+        xshift=10,
+        opacity=0.7,
+        row=1,
+        col=1
+    )]
+
+    fig.update_layout(updatemenus=[
+            dict(
+                type="buttons",
+                direction="down",
+                x=1.01,
+                y=0.7,
+                xanchor="left",
+                showactive=True,
+                buttons=[
+                    dict(label="Click to Remove Trendlines",
+                         method="update",
+                         args=[
+                             {"visible": [True, True, False, False, False, False, False, False]}
+                         ],
+                         ),
+                    dict(label="Click to Show Linear Trendlines, &sup2; &#178; &#xB2;",
+                         method="update",
+                         args=[
+                             {"visible": [True, True, True, False, False, True, False, False]},
+                             {"annotations": linear_annotation}
+                         ],
+                         ),
+                    dict(label="Click to Show Exponential Trendlines",
+                         method="update",
+                         args=[
+                             {"visible": [True, True, False, True, False, False, True, False]}
+                         ],
+                         ),
+                    dict(label="Click to Show Logarithmic Trendlines",
+                         method="update",
+                         args=[
+                             {"visible": [True, True, False, False, True, False, False, True]}
+                         ],
+                         )
+                ]
+            )])
 
     fig.update_xaxes(title_text="Base Total", row=2, col=1)
     fig.update_yaxes(title_text="Base Egg Steps", row=1, col=1)

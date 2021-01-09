@@ -5,15 +5,13 @@ import statistics
 import Regression as rgr
 
 
-plts.create_type_histogram()
-plts.create_scatter_with_stats()
-plts.create_legend_violin_plot(False, False, "ViolinPlot")
-plts.create_legend_violin_plot(True, True, "ViolinPlotWithPoints")
-plts.create_legend_boxplot()
-plts.linked_plot()
+# plts.create_type_histogram()
+# plts.create_scatter_with_stats()
+# plts.create_legend_violin_plot(False, False, "ViolinPlot")
+# plts.create_legend_violin_plot(True, True, "ViolinPlotWithPoints")
+# plts.create_legend_boxplot()
+# plts.linked_plot()
 
 
-rgr.best_fit_linear("base_total", "base_egg_steps")
-rgr.best_fit_exp("base_total", "base_egg_steps")
-rgr.best_fit_log("base_total", "base_egg_steps")
-
+all_data = dm.load_data()
+data = dm.group_data_mean(data=all_data, group_by_var="base_total")
