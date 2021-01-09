@@ -1,3 +1,4 @@
+import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import DataManipulation as dm
@@ -253,19 +254,19 @@ def create_legend_boxplot():
 
 def linked_plot():
     all_data = dm.load_data()
-    data = dm.group_data_mean(all_data, "type")
+    data = dm.group_data_mean(all_data, "base_total")
 
     legend_data = dm.only_legendary()
-    legend_data = dm.group_data_mean(legend_data, "type")
+    legend_data = dm.group_data_mean(legend_data, "base_total")
 
     normal_data = dm.no_legendary()
-    normal_data = dm.group_data_mean(normal_data, "type")
+    normal_data = dm.group_data_mean(normal_data, "base_total")
 
     mono_data = dm.mono_type()
-    mono_data = dm.group_data_mean(mono_data, "type")
+    mono_data = dm.group_data_mean(mono_data, "base_total")
 
     dual_data = dm.dual_type()
-    dual_data = dm.group_data_mean(dual_data, "type")
+    dual_data = dm.group_data_mean(dual_data, "base_total")
 
     fig = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.02)
 

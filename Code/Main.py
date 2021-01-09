@@ -2,6 +2,7 @@ import Plots as plts
 import DataManipulation as dm
 import plotly.graph_objects as go
 import statistics
+import Regression as rgr
 
 
 plts.create_type_histogram()
@@ -10,3 +11,9 @@ plts.create_legend_violin_plot(False, False, "ViolinPlot")
 plts.create_legend_violin_plot(True, True, "ViolinPlotWithPoints")
 plts.create_legend_boxplot()
 plts.linked_plot()
+
+
+rgr.best_fit_linear("base_total", "base_egg_steps")
+rgr.best_fit_exp("base_total", "base_egg_steps")
+rgr.best_fit_log("base_total", "base_egg_steps")
+
