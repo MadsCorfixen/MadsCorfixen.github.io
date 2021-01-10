@@ -61,11 +61,11 @@ def create_type_histogram():
             ]
         )
         ],
-        title="Distribution of All Pokémon Types",
+        title="Distribution of All Pokémon Types"
     )
 
     fig.update_xaxes(categoryorder="total descending", title="Typing", range=(-0.5, 17.5))
-    fig.update_yaxes(title="Count", range=(-0.5, 62.5))
+    fig.update_yaxes(title="Amount of Pokémon with Typing", range=(-0.5, 62.5))
 
     save_plot(fig, "TypeHistogram")
 
@@ -103,14 +103,28 @@ def create_legend_violin_plot(show_points=True, add_sample_size=False, file_name
     size_normal = len(normal_data)
     size_legend = len(legendary_data)
 
+    fig = go.Figure()
+
     if show_points:
         show_points = "all"
 
-    if not add_sample_size:
-        size_normal = None
-        size_legend = None
+    if add_sample_size:
+        fig.update_layout(xaxis=dict(
+            tickmode='array',
+            tickvals=[0, 1],
+            ticktext=["Non-Legendary<br />Sample Size: {}".format(size_normal),
+                      "Legendary<br />Sample Size: {}".format(size_legend)]
+        )
+        )
 
-    fig = go.Figure()
+    elif not add_sample_size:
+        fig.update_layout(xaxis=dict(
+            tickmode='array',
+            tickvals=[0, 1],
+            ticktext=["Non-Legendary",
+                      "Legendary"]
+        )
+        )
 
     fig.add_trace(go.Violin(
         x=normal_data["is_legendary"],
@@ -173,13 +187,7 @@ def create_legend_violin_plot(show_points=True, add_sample_size=False, file_name
                     ]
                 )
             ]
-        )],
-        xaxis=dict(
-            tickmode='array',
-            tickvals=[0, 1],
-            ticktext=["Non-Legendary<br />Sample Size: {}".format(size_normal),
-                      "Legendary<br />Sample Size: {}".format(size_legend)]
-        )
+        )]
     )
 
     fig.update_yaxes(rangemode="nonnegative", title="Base Total")
