@@ -1,4 +1,3 @@
-import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import DataManipulation as dm
@@ -298,12 +297,28 @@ def linked_plot():
     )
 
     linear_line_egg = rgr.best_fit_linear(data=data, x_var="base_total", y_var="base_egg_steps", color="green")
+    linear_egg_r_squared = round(rgr.get_r_squared(linear_line_egg[1], linear_line_egg[2]),
+                                 2)
+
     exponential_line_egg = rgr.best_fit_exp(data=data, x_var="base_total", y_var="base_egg_steps", color="green")
+    exponential_egg_r_squared = round(rgr.get_r_squared(exponential_line_egg[1], exponential_line_egg[2]),
+                                      2)
+
     logarithmic_line_egg = rgr.best_fit_log(data=data, x_var="base_total", y_var="base_egg_steps", color="green")
+    logarithmic_egg_r_squared = round(rgr.get_r_squared(logarithmic_line_egg[1], logarithmic_line_egg[2]),
+                                      2)
 
     linear_line_capture = rgr.best_fit_linear(data=data, x_var="base_total", y_var="capture_rate", color="blue")
+    linear_capture_r_squared = round(rgr.get_r_squared(linear_line_capture[1], linear_line_capture[2]),
+                                     2)
+
     exponential_line_capture = rgr.best_fit_exp(data=data, x_var="base_total", y_var="capture_rate", color="blue")
+    exponential_capture_r_squared = round(rgr.get_r_squared(exponential_line_capture[1], exponential_line_capture[2]),
+                                          2)
+
     logarithmic_line_capture = rgr.best_fit_log(data=data, x_var="base_total", y_var="capture_rate", color="blue")
+    logarithmic_capture_r_squared = round(rgr.get_r_squared(logarithmic_line_capture[1], logarithmic_line_capture[2]),
+                                          2)
 
     fig.add_trace(linear_line_egg[0], row=1, col=1)
     fig.add_trace(exponential_line_egg[0], row=1, col=1)
@@ -313,17 +328,92 @@ def linked_plot():
     fig.add_trace(exponential_line_capture[0], row=2, col=1)
     fig.add_trace(logarithmic_line_capture[0], row=2, col=1)
 
-    linear_annotation = [dict(
-        showarrow=True,
-        x=200,
-        y=5000,
-        text="Point 1",
-        xanchor="left",
-        xshift=10,
-        opacity=0.7,
-        row=1,
-        col=1
-    )]
+    linear_annotation = [
+        dict(
+            showarrow=True,
+            x=779,
+            y=12857.88,
+            text="R&#178;: {}".format(linear_egg_r_squared),
+            xref="x1",
+            yref="y1",
+            font=dict(
+                family="Times New Roman",
+                size=20,
+                color="black"
+            )
+        ),
+        dict(
+            showarrow=True,
+            x=779,
+            y=-43.56646,
+            text="R&#178;: {}".format(linear_capture_r_squared),
+            xref="x2",
+            yref="y2",
+            font=dict(
+                family="Times New Roman",
+                size=20,
+                color="black"
+            )
+        )
+    ]
+
+    exponential_annotations = [
+        dict(
+            showarrow=True,
+            x=779,
+            y=20381.39,
+            text="R&#178;: {}".format(exponential_egg_r_squared),
+            xref="x1",
+            yref="y1",
+            font=dict(
+                family="Times New Roman",
+                size=20,
+                color="black"
+            )
+        ),
+        dict(
+            showarrow=True,
+            x=779,
+            y=24.12334,
+            text="R&#178;: {}".format(exponential_capture_r_squared),
+            xref="x2",
+            yref="y2",
+            font=dict(
+                family="Times New Roman",
+                size=20,
+                color="black"
+            )
+        )
+    ]
+
+    logarithmic_annotations = [
+        dict(
+            showarrow=True,
+            x=779,
+            y=10257.68,
+            text="R&#178;: {}".format(logarithmic_egg_r_squared),
+            xref="x1",
+            yref="y1",
+            font=dict(
+                family="Times New Roman",
+                size=20,
+                color="black"
+            )
+        ),
+        dict(
+            showarrow=True,
+            x=779,
+            y=-4.222479,
+            text="R&#178;: {}".format(logarithmic_capture_r_squared),
+            xref="x2",
+            yref="y2",
+            font=dict(
+                family="Times New Roman",
+                size=20,
+                color="black"
+            )
+        )
+    ]
 
     fig.update_layout(updatemenus=[
             dict(
@@ -337,10 +427,11 @@ def linked_plot():
                     dict(label="Click to Remove Trendlines",
                          method="update",
                          args=[
-                             {"visible": [True, True, False, False, False, False, False, False]}
+                             {"visible": [True, True, False, False, False, False, False, False]},
+                             {"annotations": []}
                          ],
                          ),
-                    dict(label="Click to Show Linear Trendlines, &sup2; &#178; &#xB2;",
+                    dict(label="Click to Show Linear Trendlines",
                          method="update",
                          args=[
                              {"visible": [True, True, True, False, False, True, False, False]},
@@ -350,13 +441,15 @@ def linked_plot():
                     dict(label="Click to Show Exponential Trendlines",
                          method="update",
                          args=[
-                             {"visible": [True, True, False, True, False, False, True, False]}
+                             {"visible": [True, True, False, True, False, False, True, False]},
+                             {"annotations": exponential_annotations}
                          ],
                          ),
                     dict(label="Click to Show Logarithmic Trendlines",
                          method="update",
                          args=[
-                             {"visible": [True, True, False, False, True, False, False, True]}
+                             {"visible": [True, True, False, False, True, False, False, True]},
+                             {"annotations": logarithmic_annotations}
                          ],
                          )
                 ]
@@ -365,5 +458,7 @@ def linked_plot():
     fig.update_xaxes(title_text="Base Total", row=2, col=1)
     fig.update_yaxes(title_text="Base Egg Steps", row=1, col=1)
     fig.update_yaxes(title_text="Capture Rate", row=2, col=1)
+
+    fig.update_layout(title="Comparison of Pokémon Base Total, Base Egg Steps, and Capture Rate")
 
     save_plot(fig, "LinkedPlot")
