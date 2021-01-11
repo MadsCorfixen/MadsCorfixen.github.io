@@ -9,24 +9,22 @@ January 28, 2021
 Welcome to this GitHub Pages site, on which the interactive visualisations for my exam in Data Visualisation are located.
 Each question described in the Problem Statement of the report pertains to several graphs, sorted as seen below. Simply
 click a link, and the associated visualisation will open in your browser.
-
-### Which Pokémon typing is the most common?
+ 
+### Which mono-typing and dual-typing of Pokémon is the most common?
 Most important Data Vis considerations about the below visualisation.
 
-[Histogram (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/TypeHistogram.html)
+[Histogram](https://madscorfixen.github.io/UsedPlots/TypeHistogram.html)
 
-### Is there a correlation between the overall strength of a Pokémon and its other statistics?
-Most important Data Vis considerations about the below visualisations
+### Does the values of a Pok ́emon’s Base Total and its Base Egg Steps seem correlated? Does the values of a Pok ́emon’s Base Total and its Capture Rate seem correlated? If so, is it mostly linear,exponential, or logarithmic?
 
-[Linked Plot (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/LinkedPlot.html)
+[Linked Plot](https://madscorfixen.github.io/UsedPlots/LinkedPlot.html)
 
-[Scatter Plot (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/CorrelationPlot.html)
+[Scatter Plot (Alternative)](https://madscorfixen.github.io/UsedPlots/CorrelationPlot.html)
 
-### What makes a Pokémon legendary?
-Most important Data Vis considerations about the below visualisations
+### What effect does it have on a Pok ́emon’s Base Total, Base Egg Steps, and Capture Rate if it is cateogrisedas Legendary?
 
-[Violin Plot 1 (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/ViolinPlotWithPoints.html)
+[Violin Plot](https://madscorfixen.github.io/UsedPlots/ViolinPlotWithPoints.html)
 
-[Violin Plot 2 (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/ViolinPlot.html)
+[Unethical Violin Plot](https://madscorfixen.github.io/UsedPlots/ViolinPlot.html)
 
-[Boxplot w/ Whiskers (Figure X.Y)](https://madscorfixen.github.io/UsedPlots/BoxPlot.html)
+[Boxplot w/ Whiskers](https://madscorfixen.github.io/UsedPlots/BoxPlot.html)
