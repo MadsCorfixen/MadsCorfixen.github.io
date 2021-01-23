@@ -3,10 +3,12 @@
 ______________________________
 
 Mads Corfixen\
-mcorfi16@studen.aau.dk\
+mcorfi16@student.aau.dk\
 Data Science, 3rd Semester\
 Aalborg University\
-January 28, 2021
+January 28, 2021\
+[Link to Download Report](https://madscorfixen.github.io/Report.pdf) \
+[Link to Source Code](https://github.com/MadsCorfixen/MadsCorfixen.github.io)
 
 ______________________________
 
