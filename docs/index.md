@@ -1,31 +1,47 @@
 # Visualisation of Pokémon!
+
+______________________________
+
 Mads Corfixen\
 mcorfi16@studen.aau.dk\
 Data Science, 3rd Semester\
 Aalborg University\
 January 28, 2021
 
+______________________________
+
 ## Data Visualisation Exam Paper
-Welcome to this GitHub Pages site, on which the interactive visualisations for my exam in Data Visualisation are located.
-Each question described in the Problem Statement of the report pertains to several graphs, sorted as seen below. Simply
-click a link, and the associated visualisation will open in your browser.
- 
-Which mono-typing and dual-typing of Pokémon is the most common?
+Welcome to this GitHub Pages site, on which the interactive visualisations for my exam in Data Visualisation are
+located. Each question described in the Problem Statement of the report pertains to several visualisations, sorted as
+seen below. Simply click a link, and the associated visualisation will open in your browser. To view the source code
+for the visualisations, either click the 'View on GitHub' icon in the top right corner, or click
+[this link](https://github.com/MadsCorfixen/MadsCorfixen.github.io), and then navigate to the 'Code' folder. The report
+is also available for download by clicking [this link](https://madscorfixen.github.io/Report.pdf).
+
+______________________________
+
+<b>Which mono-typing and dual-typing of Pokémon is the most common?</b>
 
 [Histogram](https://madscorfixen.github.io/UsedPlots/TypeHistogram.html)
 
-Does the values of a Pokémon's Base Total and its Base Egg Steps seem correlated? Does the values of a Poḱemon’s Base Total and its Capture Rate seem correlated? If so, is it mostly linear, exponential, or logarithmic?
+______________________________
+
+<b>Does the values of a Pokémon's Base Total and its Base Egg Steps seem correlated? Does the values of a Pokémon’s
+Base Total and its Capture Rate seem correlated? If so, is it mostly linear, exponential, or logarithmic?</b>
 
 [Linked Plot](https://madscorfixen.github.io/UsedPlots/LinkedPlot.html)
 
-[Scatter Plot (Alternative)](https://madscorfixen.github.io/UsedPlots/CorrelationPlot.html)
+[Scatter Plot](https://madscorfixen.github.io/UsedPlots/CorrelationPlot.html)
 
-What effect does it have on a Pokémon's Base Total, Base Egg Steps, and Capture Rate if it is categorised as Legendary?
+______________________________
+
+<b>What effect does it have on a Pokémon's Base Total, Base Egg Steps, and Capture Rate if it is categorised as
+Legendary?</b>
 
 [Violin Plot](https://madscorfixen.github.io/UsedPlots/ViolinPlotWithPoints.html)
 
+[Boxplot](https://madscorfixen.github.io/UsedPlots/BoxPlot.html)
+
 [Unethical Violin Plot](https://madscorfixen.github.io/UsedPlots/ViolinPlot.html)
 
-[Boxplot w/ Whiskers](https://madscorfixen.github.io/UsedPlots/BoxPlot.html)
-
-Can I open the report like this? [Report](https://madscorfixen.github.io/Report.pdf)
+______________________________
