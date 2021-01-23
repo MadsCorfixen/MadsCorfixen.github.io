@@ -5,11 +5,20 @@ import Regression as rgr
 
 
 def save_plot(fig, plot_name):
+    """
+    This function is used to directly save the figure as an .html file, titled as plot_name
+    :param fig: A variable of the go.Figure type containing the figure which is to be saved locally.
+    :param plot_name: The wanted title of the .html file.
+    """
     save_directory = "../docs/UsedPlots/{}.html".format(plot_name)
     fig.write_html(save_directory)
 
 
 def create_type_histogram():
+    """
+    Creates a histogram which shows the distribution of mono- and dual-typed Pokémon. Also includes the option to
+    show the distribution of all Pokémon at once, or only show mono-typed, or only show dual-typed.
+    """
     all_data = dm.load_data()
     mono_type = dm.mono_type()
     dual_type = dm.dual_type()
@@ -71,6 +80,10 @@ def create_type_histogram():
 
 
 def create_scatter_with_stats():
+    """
+    Creates a scatter plot which tries to visualize correlation between capture rate, base egg steps, and base total
+    of Pokémon. To use 3 variables in a 2-dimensional plot, the colour channel is utilized to signify base total.
+    """
     all_data = dm.load_data()
     data = dm.group_data_mean(all_data, "type")
     x_var = "capture_rate"
