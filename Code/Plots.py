@@ -105,6 +105,7 @@ def create_scatter_with_stats():
                       yaxis_title="{}".format(y_var))
 
     fig.update_xaxes(range=(-5, 260))
+    fig.update_yaxes(range=(-1000, 35000))
 
     save_plot(fig, "CorrelationPlot")
 
@@ -349,6 +350,15 @@ def linked_plot():
     fig.add_trace(exponential_line_capture[0], row=2, col=1)
     fig.add_trace(logarithmic_line_capture[0], row=2, col=1)
 
+    test_annotations = [
+        dict(
+            text="<b>Add or Remove Trendlines</b>",
+            x=1.01, xref="paper",
+            xanchor="left",
+            y=0.95,
+            yref="paper",
+            showarrow=False)]
+
     linear_annotation = [
         dict(
             showarrow=True,
@@ -441,7 +451,7 @@ def linked_plot():
                 type="buttons",
                 direction="down",
                 x=1.01,
-                y=0.7,
+                y=0.925,
                 xanchor="left",
                 showactive=True,
                 buttons=[
@@ -449,32 +459,41 @@ def linked_plot():
                          method="update",
                          args=[
                              {"visible": [True, True, False, False, False, False, False, False]},
-                             {"annotations": []}
+                             {"annotations": test_annotations}
                          ],
                          ),
                     dict(label="Click to Show Linear Trendlines",
                          method="update",
                          args=[
                              {"visible": [True, True, True, False, False, True, False, False]},
-                             {"annotations": linear_annotation}
+                             {"annotations": linear_annotation+test_annotations}
                          ],
                          ),
                     dict(label="Click to Show Exponential Trendlines",
                          method="update",
                          args=[
                              {"visible": [True, True, False, True, False, False, True, False]},
-                             {"annotations": exponential_annotations}
+                             {"annotations": exponential_annotations+test_annotations}
                          ],
                          ),
                     dict(label="Click to Show Logarithmic Trendlines",
                          method="update",
                          args=[
                              {"visible": [True, True, False, False, True, False, False, True]},
-                             {"annotations": logarithmic_annotations}
+                             {"annotations": logarithmic_annotations+test_annotations}
                          ],
                          )
                 ]
-            )])
+            )],
+        annotations=[
+            dict(
+                text="<b>Add or Remove Trendlines</b>",
+                x=1.01, xref="paper",
+                xanchor="left",
+                y=0.95,
+                yref="paper",
+                showarrow=False)]
+    )
 
     fig.update_xaxes(title_text="Base Total", row=2, col=1)
     fig.update_yaxes(title_text="Base Egg Steps", row=1, col=1)
