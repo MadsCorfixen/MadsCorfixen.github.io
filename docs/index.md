@@ -1,4 +1,13 @@
-# Visualisation of Pokémon!
+## Visualisation of Pokémon!
+
+______________________________
+
+Mads Corfixen\
+mcorfi16@studen.aau.dk\
+Data Science, 3rd Semester\
+Aalborg University\
+January 28, 2021
+
 ______________________________
 
 <b>Which mono-typing and dual-typing of Pokémon is the most common?</b>
