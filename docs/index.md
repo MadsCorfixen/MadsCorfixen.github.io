@@ -27,3 +27,5 @@ What effect does it have on a Pokémon's Base Total, Base Egg Steps, and Capture
 [Unethical Violin Plot](https://madscorfixen.github.io/UsedPlots/ViolinPlot.html)
 
 [Boxplot w/ Whiskers](https://madscorfixen.github.io/UsedPlots/BoxPlot.html)
+
+Can I open the report like this? [Report](https://madscorfixen.github.io/Report.pdf)
