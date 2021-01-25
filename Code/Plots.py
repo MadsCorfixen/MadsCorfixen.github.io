@@ -38,10 +38,10 @@ def create_type_histogram():
                   )
 
     fig.update_layout(
-        annotations=[dict(text="<b>Choose Mono- or<br />Dual Typing</b>", x=1.01, xref="paper", xanchor="left",
+        annotations=[dict(text="<b>Show:</b>", x=1.01, xref="paper", xanchor="left",
                           y=1, yref="paper", showarrow=False)],
         updatemenus=[dict(
-            direction="down", x=1.01, y=0.966, xanchor="left", type="buttons",
+            direction="down", x=1.01, y=0.97, xanchor="left", type="buttons",
             buttons=[
                 dict(
                     label="All Pokémon",
@@ -52,7 +52,7 @@ def create_type_histogram():
                     ]
                 ),
                 dict(
-                    label="Mono-Typed Pokémon",
+                    label="Only Mono-Typed Pokémon",
                     method="update",
                     args=[
                         {"x": [mono_type["type"]]},
@@ -60,7 +60,7 @@ def create_type_histogram():
                     ]
                 ),
                 dict(
-                    label="Dual-Typed Pokémon",
+                    label="Only Dual-Typed Pokémon",
                     method="update",
                     args=[
                         {"x": [dual_type["type"]]},

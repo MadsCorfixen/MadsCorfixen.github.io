@@ -7,6 +7,7 @@ January 28, 2021\
 [Link to Download Report](https://madscorfixen.github.io/Report.pdf) \
 [Link to Source Code](https://github.com/MadsCorfixen/MadsCorfixen.github.io)
 
+## The Program
 ______________________________
 
 <b>Which mono-typing and dual-typing of Pokémon is the most common?</b>
@@ -32,3 +33,5 @@ Legendary?</b>
 [Click to see a Boxplot](https://madscorfixen.github.io/UsedPlots/BoxPlot.html)
 
 ______________________________
+
+## The Program - After Usability Test
