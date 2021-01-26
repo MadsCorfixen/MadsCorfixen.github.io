@@ -229,7 +229,7 @@ def create_legend_boxplot():
                          fillcolor="blue"))
 
     fig.update_layout(
-        annotations=[dict(text="<b>Choose Comparison", x=1.01, xref="paper", xanchor="left",
+        annotations=[dict(text="<b>Choose Comparison:", x=1.01, xref="paper", xanchor="left",
                           y=0.92, yref="paper", showarrow=False)],
         legend=dict(x=1.005, xanchor="left", y=1),
         updatemenus=[dict(
