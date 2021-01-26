@@ -15,7 +15,7 @@ January 28, 2021\
 
 ______________________________
 
-<b>Do the values of a Pokémon's Base Total and its Base Egg Steps seem correlated? Does the values of a Pokémon’s
+<b>Do the values of a Pokémon's Base Total and its Base Egg Steps seem correlated? Do the values of a Pokémon’s
 Base Total and its Capture Rate seem correlated?</b>
 
 [Click to see a Linked Plot](https://madscorfixen.github.io/UsedPlots/LinkedPlot.html)
