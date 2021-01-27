@@ -32,5 +32,3 @@ Legendary?</b>
 [Click to see a Boxplot](https://madscorfixen.github.io/UsedPlots/BoxPlot.html)
 
 ______________________________
-
-## The Program - After Usability Test
