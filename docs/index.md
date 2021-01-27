@@ -32,3 +32,16 @@ Legendary?</b>
 [Click to see a Boxplot](https://madscorfixen.github.io/UsedPlots/BoxPlot.html)
 
 ______________________________
+
+## Visualisations Updated Based on User Feed-back
+
+For the Histogram, the '/none' part was removed from the primary axis if only showing mono-typed Pokémon.
+
+[Click to see updated Histogram](https://madscorfixen.github.io/UsedPlots/TypeHistogramUpdated.html)
+
+For the Linked Plot, the points were made transparent, and the R-squared value was given a background,
+to increase the popout of the value.
+
+[Click to see updated Linked Plot](https://madscorfixen.github.io/UsedPlots/LinkedPlotUpdated.html)
+
+

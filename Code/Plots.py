@@ -55,7 +55,7 @@ def create_type_histogram():
                     label="Only Mono-Typed Pokémon",
                     method="update",
                     args=[
-                        {"x": [mono_type["type"]]},
+                        {"x": [mono_type["type1"]]},
                         {"title.text": "Distribution of Mono-Typed Pokémon"}
                     ]
                 ),
@@ -76,7 +76,7 @@ def create_type_histogram():
     fig.update_xaxes(categoryorder="total descending", title="Typing", range=(-0.5, 17.5))
     fig.update_yaxes(title="Amount of Pokémon with Typing", range=(-0.5, 62.5))
 
-    save_plot(fig, "TypeHistogram")
+    save_plot(fig, "TypeHistogramUpdated")
 
 
 def create_scatter_with_stats():
@@ -277,6 +277,7 @@ def create_legend_boxplot():
 def linked_plot():
     all_data = dm.load_data()
     data = dm.group_data_mean(all_data, "base_total")
+    opacity_value = 0.5
 
     fig = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.02)
 
@@ -293,7 +294,8 @@ def linked_plot():
                     color="black",
                     width=1.5
                 )
-            )
+            ),
+            opacity=opacity_value
         ),
         row=1,
         col=1
@@ -312,7 +314,8 @@ def linked_plot():
                     color="black",
                     width=1.5
                 )
-            )
+            ),
+            opacity=opacity_value
         ),
         row=2,
         col=1
@@ -513,4 +516,4 @@ def linked_plot():
 
     fig.update_layout(title="Comparison of Pokémon Base Total, Base Egg Steps, and Capture Rate")
 
-    save_plot(fig, "LinkedPlot")
+    save_plot(fig, "LinkedPlotUpdated")
