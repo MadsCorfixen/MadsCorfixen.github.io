@@ -370,8 +370,10 @@ def linked_plot():
             font=dict(
                 family="Times New Roman",
                 size=20,
-                color="black"
-            )
+                color="white"
+            ),
+            bordercolor='white',
+            bgcolor='green'
         ),
         dict(
             showarrow=True,
@@ -383,8 +385,10 @@ def linked_plot():
             font=dict(
                 family="Times New Roman",
                 size=20,
-                color="black"
-            )
+                color="white"
+            ),
+            bordercolor='white',
+            bgcolor='blue'
         )
     ]
 
@@ -399,8 +403,10 @@ def linked_plot():
             font=dict(
                 family="Times New Roman",
                 size=20,
-                color="black"
-            )
+                color="white"
+            ),
+            bordercolor='white',
+            bgcolor='green'
         ),
         dict(
             showarrow=True,
@@ -412,8 +418,10 @@ def linked_plot():
             font=dict(
                 family="Times New Roman",
                 size=20,
-                color="black"
-            )
+                color="white"
+            ),
+            bordercolor='white',
+            bgcolor='blue'
         )
     ]
 
@@ -428,8 +436,10 @@ def linked_plot():
             font=dict(
                 family="Times New Roman",
                 size=20,
-                color="black"
-            )
+                color="white"
+            ),
+            bordercolor='white',
+            bgcolor='green'
         ),
         dict(
             showarrow=True,
@@ -441,8 +451,10 @@ def linked_plot():
             font=dict(
                 family="Times New Roman",
                 size=20,
-                color="black"
-            )
+                color="white"
+            ),
+            bordercolor='white',
+            bgcolor='blue'
         )
     ]
 
